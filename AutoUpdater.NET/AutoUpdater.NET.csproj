@@ -63,10 +63,11 @@
     <DocumentationFile>build\lib\net40\AutoUpdater.NET.XML</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>AutoUpdater.NET.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <!-- WPF Specific -->
   <PropertyGroup Condition=" '$(TargetFrameworkVersion)' != 'v2.0' And '$(TargetFrameworkVersion)' != 'v3.0' ">
@@ -93,7 +94,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
-	<Reference Include="System.Runtime.Serialization" Condition=" '$(WPFSupported)' And '$(TargetFrameworkVersion)' != 'v3.5' "/>
+    <Reference Include="System.Runtime.Serialization" Condition=" '$(WPFSupported)' And '$(TargetFrameworkVersion)' != 'v3.5' " />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -109,7 +110,7 @@
     </Compile>
     <Compile Include="IAuthentication.cs" />
     <Compile Include="IPersistenceProvider.cs" />
-	<Compile Include="JsonFilePersistenceProvider.cs" Condition=" '$(WPFSupported)' And '$(TargetFrameworkVersion)' != 'v3.5' "/>
+    <Compile Include="JsonFilePersistenceProvider.cs" Condition=" '$(WPFSupported)' And '$(TargetFrameworkVersion)' != 'v3.5' " />
     <Compile Include="MyWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -136,219 +137,311 @@
     <Compile Include="UpdateInfoEventArgs.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DownloadUpdateDialog.ar.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.ar.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.da.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.da.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.de.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.de.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.es.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.es.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.fr.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.fr.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.it.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.it.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.ja-JP.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.ja-JP.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.ko.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.ko.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.nl.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.nl.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.pl.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.pl.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.pt.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.pt.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.pt-BR.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.pt-BR.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.ru.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.ru.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.sk.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.sk.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.sv.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.sv.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.tr.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.tr.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.zh.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.zh.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.zh-tw.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.zh-tw.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="DownloadUpdateDialog.th.resx">
+    <EmbeddedResource Include="Resources\DownloadUpdateDialog.th.resx">
       <DependentUpon>DownloadUpdateDialog.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.ar.resx" />
-    <EmbeddedResource Include="Properties\Resources.ja-JP.resx" />
-    <EmbeddedResource Include="Properties\Resources.da.resx" />
-    <EmbeddedResource Include="Properties\Resources.de.resx" />
-    <EmbeddedResource Include="Properties\Resources.es.resx" />
-    <EmbeddedResource Include="Properties\Resources.fr.resx" />
-    <EmbeddedResource Include="Properties\Resources.it.resx" />
-    <EmbeddedResource Include="Properties\Resources.ko.resx" />
-    <EmbeddedResource Include="Properties\Resources.nl.resx" />
-    <EmbeddedResource Include="Properties\Resources.pl.resx" />
+    <EmbeddedResource Include="Properties\Resources.ar.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ja-JP.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.da.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.es.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.fr.resx">
+      <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.it.resx">
+      <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ko.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.nl.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.pl.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.pt-BR.resx">
       <SubType>Designer</SubType>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.ru.resx" />
-    <EmbeddedResource Include="Properties\Resources.sk.resx" />
-    <EmbeddedResource Include="Properties\Resources.sv.resx" />
+    <EmbeddedResource Include="Properties\Resources.ru.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.sk.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.sv.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.th.resx">
       <SubType>Designer</SubType>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.zh.resx" />
-    <EmbeddedResource Include="Properties\Resources.zh-tw.resx" />
-    <EmbeddedResource Include="RemindLaterForm.ar.resx">
+    <EmbeddedResource Include="Properties\Resources.zh.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.zh-tw.resx">
+		<ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
+	</EmbeddedResource>
+    <EmbeddedResource Include="Resources\RemindLaterForm.ar.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.da.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.da.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.de.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.de.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.es.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.es.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.fr.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.fr.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.it.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.it.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.ja-JP.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.ja-JP.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.ko.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.ko.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.nl.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.nl.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.pl.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.pl.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.pt.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.pt.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.pt-BR.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.pt-BR.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.ru.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.ru.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.sk.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.sk.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.sv.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.sv.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.tr.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.tr.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.zh.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.zh.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.zh-tw.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.zh-tw.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="RemindLaterForm.th.resx">
+    <EmbeddedResource Include="Resources\RemindLaterForm.th.resx">
       <DependentUpon>RemindLaterForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.ar.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.ar.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.da.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.da.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.de.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.de.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.es.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.es.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.fr.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.fr.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.it.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.it.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.ja-JP.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.ja-JP.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.ko.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.ko.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.nl.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.nl.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.pl.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.pl.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.pt.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.pt.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.pt-BR.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.pt-BR.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.ru.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.ru.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.sk.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.sk.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.sv.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.sv.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.tr.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.tr.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.zh.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.zh.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.zh-tw.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.zh-tw.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateForm.th.resx">
+    <EmbeddedResource Include="Resources\UpdateForm.th.resx">
       <DependentUpon>UpdateForm.cs</DependentUpon>
+	  <ManifestResourceName>$(TargetName).%(Filename)</ManifestResourceName>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="AutoUpdater.NET.snk" />
     <None Include="build\Autoupdater.NET.Official.nuspec">
       <SubType>Designer</SubType>
     </None>
